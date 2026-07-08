@@ -1,0 +1,251 @@
+/* ===== Base Reset & Font ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #1a1a2e;
+    color: #e0e0e0;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* ===== Container ===== */
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+h1 {
+    text-align: center;
+    font-size: 2rem;
+    color: #ffffff;
+    margin-bottom: 4px;
+}
+
+.subtitle {
+    text-align: center;
+    color: #888;
+    margin-bottom: 24px;
+    font-size: 0.95rem;
+}
+
+/* ===== Status ===== */
+.status {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 24px;
+    font-size: 0.85rem;
+    color: #aaa;
+}
+
+.status-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #f39c12;
+}
+
+.status.connected .status-dot {
+    background-color: #2ecc71;
+}
+
+.status.error .status-dot {
+    background-color: #e74c3c;
+}
+
+/* ===== Cards ===== */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 32px;
+}
+
+.sensor-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin-bottom: 32px;
+}
+
+.card {
+    background: #16213e;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    border: 1px solid #2a2a4a;
+}
+
+.card-label {
+    font-size: 0.8rem;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+}
+
+.card-unit {
+    font-size: 0.85rem;
+    color: #888;
+    margin-top: 4px;
+}
+
+.card-value {
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+.card-count .card-value {
+    color: #3498db;
+}
+
+.card-in .card-value {
+    color: #2ecc71;
+}
+
+.card-out .card-value {
+    color: #e74c3c;
+}
+
+.card-co2 .card-value {
+    color: #f39c12;
+}
+
+.card-noise .card-value {
+    color: #9b59b6;
+}
+
+/* ===== Sensor Chart Grid ===== */
+.sensor-chart-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin-bottom: 32px;
+}
+
+/* ===== Chart Section ===== */
+.chart-section {
+    margin-bottom: 32px;
+}
+
+.chart-section h2 {
+    font-size: 1.1rem;
+    margin-bottom: 12px;
+    color: #ccc;
+}
+
+.chart-container {
+    background: #16213e;
+    border-radius: 12px;
+    padding: 20px;
+    border: 1px solid #2a2a4a;
+}
+
+/* ===== Log Section ===== */
+.log-section h2 {
+    font-size: 1.1rem;
+    margin-bottom: 12px;
+    color: #ccc;
+}
+
+.log {
+    background: #16213e;
+    border-radius: 12px;
+    padding: 16px;
+    max-height: 300px;
+    overflow-y: auto;
+    border: 1px solid #2a2a4a;
+}
+
+.log-empty {
+    color: #666;
+    text-align: center;
+    font-style: italic;
+    padding: 20px;
+}
+
+.log-entry {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 0;
+    border-bottom: 1px solid #2a2a4a;
+    font-size: 0.9rem;
+}
+
+.log-entry:last-child {
+    border-bottom: none;
+}
+
+.log-badge {
+    padding: 2px 10px;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    min-width: 40px;
+    text-align: center;
+}
+
+.log-badge.in {
+    background: rgba(46, 204, 113, 0.2);
+    color: #2ecc71;
+}
+
+.log-badge.out {
+    background: rgba(231, 76, 60, 0.2);
+    color: #e74c3c;
+}
+
+.log-time {
+    color: #666;
+    font-size: 0.8rem;
+    margin-left: auto;
+}
+
+/* ===== Scrollbar ===== */
+.log::-webkit-scrollbar {
+    width: 6px;
+}
+
+.log::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.log::-webkit-scrollbar-thumb {
+    background: #444;
+    border-radius: 3px;
+}
+
+/* ===== Log Badge — Sensor types ===== */
+.log-badge.co2 {
+    background: rgba(243, 156, 18, 0.2);
+    color: #f39c12;
+}
+
+.log-badge.noise {
+    background: rgba(155, 89, 182, 0.2);
+    color: #9b59b6;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 600px) {
+    .cards {
+        grid-template-columns: 1fr;
+    }
+    .sensor-cards {
+        grid-template-columns: 1fr;
+    }
+    .sensor-chart-grid {
+        grid-template-columns: 1fr;
+    }
+    .card-value {
+        font-size: 2rem;
+    }
+}

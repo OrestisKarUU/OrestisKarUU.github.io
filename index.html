@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crowd Counter — Live Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Crowd Counter</h1>
+        <p class="subtitle">Real-time people counting dashboard</p>
+
+        <!-- Status indicator -->
+        <div class="status" id="status">
+            <span class="status-dot"></span>
+            <span id="status-text">Connecting to Firebase...</span>
+        </div>
+
+        <!-- Main counter cards -->
+        <div class="cards">
+            <div class="card card-count">
+                <div class="card-label">People Inside</div>
+                <div class="card-value" id="current-count">0</div>
+            </div>
+            <div class="card card-in">
+                <div class="card-label">Total Entered</div>
+                <div class="card-value" id="total-in">0</div>
+            </div>
+            <div class="card card-out">
+                <div class="card-label">Total Exited</div>
+                <div class="card-value" id="total-out">0</div>
+            </div>
+        </div>
+
+        <!-- Sensor cards -->
+        <div class="sensor-cards">
+            <div class="card card-co2">
+                <div class="card-label">Air Quality</div>
+                <div class="card-value" id="co2-value">—</div>
+                <div class="card-unit">ppm</div>
+            </div>
+            <div class="card card-noise">
+                <div class="card-label">Noise Level</div>
+                <div class="card-value" id="noise-value">—</div>
+                <div class="card-unit">dB</div>
+            </div>
+        </div>
+
+        <!-- Occupancy chart -->
+        <div class="chart-section">
+            <h2>Occupancy Over Time</h2>
+            <div class="chart-container">
+                <canvas id="occupancy-chart"></canvas>
+            </div>
+        </div>
+
+        <!-- Sensor charts side-by-side -->
+        <div class="sensor-chart-grid">
+            <div class="chart-section">
+                <h2>Air Quality Over Time</h2>
+                <div class="chart-container">
+                    <canvas id="co2-chart"></canvas>
+                </div>
+            </div>
+            <div class="chart-section">
+                <h2>Noise Over Time</h2>
+                <div class="chart-container">
+                    <canvas id="noise-chart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- Activity log -->
+        <div class="log-section">
+            <h2>Activity Log</h2>
+            <div class="log" id="activity-log">
+                <p class="log-empty">No events yet. Waiting for data...</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+    <!-- Firebase SDK (compat version for simplicity) -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-database-compat.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
